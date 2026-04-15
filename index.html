@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Süper Denklem Kahramanı! 🦹‍♂️🦸‍♀️</title>
+    <meta name="description" content="Ortaokul seviyesinde tek bilinmeyenli denklem çözme oyunu.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="floating-shape shape1">➕</div>
+    <div class="floating-shape shape2">✖️</div>
+    <div class="floating-shape shape3">➗</div>
+    <div class="floating-shape shape4">➖</div>
+    <div class="floating-shape shape5">📐</div>
+    <div class="floating-shape shape6">💡</div>
+
+    <div class="container">
+        <!-- Başlangıç Ekranı -->
+        <div id="start-screen" class="screen active">
+            <h1>Süper Denklem Kahramanı! 🦸‍♀️</h1>
+            <p>2 dakika içinde çözebildiğin kadar denklem çöz! <br> Zorluk seviyeni seç:</p>
+            
+            <div class="difficulty-buttons">
+                <button class="btn diff-btn btn-easy" data-diff="easy">Kolay 🟢</button>
+                <button class="btn diff-btn btn-medium" data-diff="medium">Orta 🟡</button>
+                <button class="btn diff-btn btn-hard" data-diff="hard">Zor 🔴</button>
+            </div>
+            
+            <div class="start-controls">
+                <button id="show-scoreboard-btn" class="btn secondary-btn">Liderlik Tablosu 🏆</button>
+                <button id="toggle-music-btn" class="btn icon-btn" title="Müziği Aç / Kapat">🎵</button>
+            </div>
+        </div>
+
+        <!-- Oyun Ekranı -->
+        <div id="game-screen" class="screen">
+            <div class="header">
+                <div class="time-box">Süre: <span id="time-left">120</span>s ⏳</div>
+                <div class="score-container">
+                    <div class="score-box">Puan: <span id="score">0</span> 🌟</div>
+                    <div id="combo-badge" class="combo-badge">🔥 x2 Puan!</div>
+                </div>
+                <button id="pause-btn" class="btn icon-btn pause-btn" title="Duraklat">⏸️</button>
+            </div>
+            
+            <div id="pause-overlay" class="pause-overlay">
+                <h2>Oyun Duraklatıldı! 🛑</h2>
+                <button id="resume-btn" class="btn primary-btn">Devam Et ▶️</button>
+            </div>
+
+            <div class="question-container">
+                <div id="equation-display">2x + 5 = 15</div>
+            </div>
+
+            <div class="input-container">
+                <span>x = </span>
+                <input type="number" id="answer-input" autocomplete="off" placeholder="?" autofocus>
+                <button id="submit-btn" class="btn secondary-btn">Yanıtla ✔️</button>
+            </div>
+
+            <div id="feedback-message" class="feedback">Harika! 🥳</div>
+
+            <div id="hint-container" class="hint-container">
+                <h3>💡 Adım Adım Çözüm İpucu:</h3>
+                <ul id="hint-list"></ul>
+            </div>
+        </div>
+
+        <!-- Bitiş Ekranı -->
+        <div id="end-screen" class="screen">
+            <h1>Süre Bitti! ⏰</h1>
+            <h2>Toplam Puanın: <span id="final-score">0</span> 🌟</h2>
+            <p id="end-message">Harika bir iş çıkardın!</p>
+            
+            <div id="save-score-section">
+                <p>Skorunu liderler tablosuna kaydet:</p>
+                <div class="save-input-group">
+                    <input type="text" id="player-name" placeholder="Kahramanın Adı" maxlength="15" autocomplete="off">
+                    <button id="save-score-btn" class="btn btn-save">Skoru Kaydet 💾</button>
+                </div>
+            </div>
+
+            <div class="end-buttons">
+                <button id="restart-btn" class="btn primary-btn">Yeniden Oyna! 🔄</button>
+                <button id="to-menu-btn" class="btn secondary-btn">Ana Menü 🏠</button>
+            </div>
+        </div>
+
+        <!-- Liderlik Tablosu Ekranı -->
+        <div id="scoreboard-screen" class="screen">
+            <h1>Liderlik Tablosu 🏆</h1>
+            <div class="scoreboard-container">
+                <ol id="scoreboard-list"></ol>
+            </div>
+            <button id="back-to-start-btn" class="btn primary-btn" style="margin-top: 10px;">Ana Menüye Dön 🏠</button>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
